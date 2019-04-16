@@ -35,7 +35,7 @@ public class UnionFind {
             return location;
         }
         else {
-            return this.setList[location] = (this.setList[location]);
+            return this.setList[location] = find(this.setList[location]);
         }
     }
 
@@ -50,13 +50,19 @@ public class UnionFind {
         UnionFind unionFindTest = new UnionFind(30);
         System.out.println("Array initialized...");
         unionFindTest.printArray();
+        System.out.println("Normal Union Test:");
         System.out.println("Building up the first two sets with 2 and 4, and 6 and 8...");
         unionFindTest.union(unionFindTest.find(2), unionFindTest.find(4));
         unionFindTest.union(unionFindTest.find(6), unionFindTest.find(8));
         unionFindTest.printArray();
+        System.out.println("Smart Union by size Test:");
         System.out.println("Adding 3 to the 2 set and combining it with the 6 set...");
         unionFindTest.union(unionFindTest.find(2), unionFindTest.find(3));
         unionFindTest.union(unionFindTest.find(2), unionFindTest.find(6));
+        unionFindTest.printArray();
+        System.out.println("Path Compression Test:");
+        System.out.println("Performing a find on 6...");
+        unionFindTest.find(6);
         unionFindTest.printArray();
     }
 }
