@@ -16,7 +16,10 @@ public class UnionFind {
      * Unionizes two roots
      **********************************/
     public void union(int root1, int root2) {
-        if(this.setList[root1] < this.setList[root2]) {
+        if(root1 == root2) {
+            System.out.println("ARGGGGGG!!!!!!");
+        }
+        if(this.setList[root1] <= this.setList[root2]) {
             this.setList[root1] += this.setList[root2];
             this.setList[root2] = root1;
         }
