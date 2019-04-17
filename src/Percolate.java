@@ -3,6 +3,9 @@ public class Percolate {
     private int size;
     private char[][] soil;
     private UnionFind unionFind;
+    /**********************************
+     * Constructors with default being size 20
+     **********************************/
     public Percolate() {
         this(20);
     }
@@ -16,6 +19,10 @@ public class Percolate {
         }
     }
 
+    /**********************************
+     * checks percolation starting from top
+     * layer and then using recursive uniteAdjact
+     **********************************/
     private boolean canPercolate() {
         boolean thing = true;
         for(int i = 0; i < this.size; i++) {
@@ -29,6 +36,9 @@ public class Percolate {
         return false;
     }
 
+    /**********************************
+     * recursive function to check places to percolate
+     **********************************/
     private boolean uniteAdjact(int row, int col) {
         int root1 = this.unionFind.find((row*this.size)+(col%this.size));
         int root2;
@@ -72,6 +82,10 @@ public class Percolate {
         return false;
     }
 
+    /**********************************
+     * Opens a new position and then checks
+     * percolation on it
+     **********************************/
     public int goUntilPercolate() {
         int count = 0;
         while(!canPercolate()) {
@@ -90,6 +104,9 @@ public class Percolate {
         return count;
     }
 
+    /**********************************
+     * Prints out the graph
+     **********************************/
     public void printSoil() {
         for(int i=0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
@@ -100,6 +117,9 @@ public class Percolate {
         System.out.println("----------------------");
     }
 
+    /**********************************
+     * Just checks for bad input
+     **********************************/
     static private int badInputCheckerForInt() {
         Scanner in = new Scanner(System.in);
         do {
@@ -114,6 +134,7 @@ public class Percolate {
         } while (true);
     }
 
+    // The main function to find the average
     public static void main(String[] args) {
         System.out.print("How many times do you want to run Percolation: ");
         int repeat = badInputCheckerForInt();

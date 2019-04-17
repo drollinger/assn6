@@ -49,6 +49,7 @@ public class UnionFind {
             System.out.println(i + "\t\t|\t" + this.setList[i]);
     }
 
+    //The Main function to test things out
     public static void main(String[] args) {
         UnionFind unionFindTest = new UnionFind(30);
         System.out.println("Array initialized...");
